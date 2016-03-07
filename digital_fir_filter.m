@@ -1,10 +1,11 @@
 function digital_fir_filter
 
-  load ('filter_specifications.mat')
+  load ('filter_specifications.mat');
 
   [N, Fo, Ao, W] = firpmord(F,A,DEV,1);
   Bk = firpm(N,Fo,Ao,W);
   [H,W] = freqz(Bk,1,Num_Points);
+
   figure(1);
   plot(W/2,abs(H));
   xlabel('Digital Frequency');
